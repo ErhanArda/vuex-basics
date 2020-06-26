@@ -26,8 +26,12 @@ export default new Vuex.Store({
   },
   actions: {
     resetMessage: context => {
-      context.commit("resetPrefix");
-      context.commit("setMessage", "Unknown");
+      fetch("https://jsonplaceholder.typicode.com/posts/1")
+        .then(response => response.json())
+        .then(json => {
+          context.commit("resetPrefix");
+          context.commit("setMessage", json.title);
+        });
     }
   }
 });
