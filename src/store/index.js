@@ -6,7 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     message: "Hello from Vuex!",
-    prefix: "New Message: "
+    prefix: "New Message: ",
+    post: null
   },
   getters: {
     prefix: state => {
@@ -22,16 +23,23 @@ export default new Vuex.Store({
     },
     setMessage: (state, newMessage) => {
       state.message = newMessage;
+    },
+    setPost: (state, post) => {
+      state.post = post;
     }
   },
   actions: {
-    resetMessage: context => {
+    fetchPost: context => {
       fetch("https://jsonplaceholder.typicode.com/posts/1")
         .then(response => response.json())
-        .then(json => {
-          context.commit("resetPrefix");
-          context.commit("setMessage", json.title);
+        .then(post => {
+          context.commit("setPost", post);
+          context.dispatch("resetMessage");
         });
+    },
+    resetMessage: context => {
+      context.commit("resetPrefix");
+      context.commit("setMessage", context.state.post.title);
     }
   }
 });
