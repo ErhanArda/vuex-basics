@@ -11,7 +11,7 @@ import { mapGetters } from "vuex";
 export default {
   methods: {
     updateMessage: function() {
-      this.$store.commit("setMessage", "A mutated message");
+      this.$store.dispatch("resetMessage", "A mutated message");
     }
   },
   computed: {

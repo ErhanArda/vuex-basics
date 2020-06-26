@@ -17,8 +17,17 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    resetPrefix: state => {
+      state.prefix = "Unset: ";
+    },
     setMessage: (state, newMessage) => {
       state.message = newMessage;
+    }
+  },
+  actions: {
+    resetMessage: context => {
+      context.commit("resetPrefix");
+      context.commit("setMessage", "Unknown");
     }
   }
 });
