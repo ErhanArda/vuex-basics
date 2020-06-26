@@ -15,5 +15,10 @@ export default new Vuex.Store({
     getMessage: (state, getters) => {
       return getters.prefix + state.message;
     }
+  },
+  mutations: {
+    setMessage: (state, newMessage) => {
+      state.message = newMessage;
+    }
   }
 });

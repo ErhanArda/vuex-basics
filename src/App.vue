@@ -1,10 +1,7 @@
 <template>
   <div>
-    <!-- {{ $store.getters.getMessage }} -->
     {{ getMessage }}
-    <!-- <div>
-      {{ prefix }}
-    </div> -->
+    <button @click.prevent="updateMessage">Update</button>
   </div>
 </template>
 
@@ -12,11 +9,13 @@
 import { mapGetters } from "vuex";
 
 export default {
+  methods: {
+    updateMessage: function() {
+      this.$store.commit("setMessage", "A mutated message");
+    }
+  },
   computed: {
-    ...mapGetters(["getMessage", "prefix"]),
-    // myMessage: function() {
-    //   return this.$store.getters.getMessage;
-    // }
+    ...mapGetters(["getMessage", "prefix"])
   }
 };
 </script>
