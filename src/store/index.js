@@ -5,11 +5,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    message: "Hello from Vuex!"
+    message: "Hello from Vuex!",
+    prefix: "New Message: "
   },
   getters: {
-    getMessage: state => {
-      return "Message: " + state.message;
+    prefix: state => {
+      return state.prefix.toUpperCase();
+    },
+    getMessage: (state, getters) => {
+      return getters.prefix + state.message;
     }
   }
 });
