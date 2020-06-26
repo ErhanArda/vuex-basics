@@ -4,8 +4,12 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+  state: {
+    message: "Hello from Vuex!"
+  },
+  getters: {
+    getMessage: state => {
+      return "Message: " + state.message;
+    }
+  }
 });
