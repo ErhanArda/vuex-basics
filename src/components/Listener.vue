@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <p>{{ $store.state.message }}</p>
 </template>
 
 <script>
