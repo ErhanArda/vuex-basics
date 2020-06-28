@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p>{{ $store.state.message }}</p>
-    <p>{{ $store.state.amount }}</p>
+    <p>{{ $store.state.field.message }}</p>
+    <p>{{ $store.state.field.amount }}</p>
   </div>
 </template>
 

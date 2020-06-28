@@ -8,7 +8,8 @@ export default {
   computed: {
     inputValue: {
       get() {
-        return this.$store.state[this.field];
+        console.log(this.$store.state)
+        return this.$store.state.field[this.field];
       },
       set(value) {
         this.$store.commit("setField", {
