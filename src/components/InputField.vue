@@ -1,16 +1,20 @@
 <template>
-  <input v-model="message" />
+  <input v-model="inputValue" />
 </template>
 
 <script>
 export default {
+  props: ["field"],
   computed: {
-    message: {
+    inputValue: {
       get() {
-        return this.$store.state.message;
+        return this.$store.state[this.field];
       },
       set(value) {
-        this.$store.commit("setMessage", value);
+        this.$store.commit("setField", {
+          field: this.field,
+          value: value
+        });
       }
     }
   }

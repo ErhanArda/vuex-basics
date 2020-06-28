@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     message: "Hello from Vuex!",
+    amount: 0,
     prefix: "New Message: ",
     post: null
   },
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     setPost: (state, post) => {
       state.post = post;
+    },
+    setField: (state, fieldObject) => {
+      state[fieldObject.field] = fieldObject.value;
     }
   },
   actions: {

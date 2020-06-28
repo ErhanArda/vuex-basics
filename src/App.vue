@@ -5,7 +5,8 @@
       <button @click.prevent="updateMessage">Update</button>
     </div>
     <div>
-      <input-field></input-field>
+      <input-field field="message"></input-field>
+      <input-field field="amount"></input-field>
 
       <listener></listener>
     </div>
@@ -30,10 +31,10 @@ export default {
     InputField,
     Listener
   },
-  mutations: {
-    setMessage: (state, newMessage) => {
-      state.message = newMessage;
-    }
-  }
+  // mutations: {
+  //   setMessage: (state, newMessage) => {
+  //     state.message = newMessage;
+  //   }
+  // }
 };
 </script>
